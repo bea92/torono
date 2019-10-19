@@ -17,20 +17,25 @@
 <body>
 
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="title col-lg-12">
-        <h1>le fontanelle di toronto</h1>
-        <p>per avere sempre acqua fresca 🍄</p>
-      </div>
-    </div>
+  <div class="container-fluid title">
+      <div class="row">
+        <div class="title col-lg-12">
+          <h1>le 630 fontanelle di toronto</h1>
+          <h2>per avere sempre acqua fresca</h2>
+        </div>
   </div>
+
+  <p><a href="https://www.reddit.com/r/running/comments/3eaxsp/toronto_runners_i_made_a_map_of_water_fountains/">Qua puoi trovare la fonte ufficiosa</a></p>
+  <p>In realtà, come ben saprai, ci sono molte altre fontanelle a Toronto, ma sono riuscita a scaricare i dati solo di queste 630.
+    <br> Se vuoi più fontanelle vai sul tuo amato <a href="https://www.fontanelle.org/">fontanelle.org</a>, ma questa è più bella.
+    <br> Dammi tempo e avrai tutte le 3000 fontanelle di Toronto.
+
 
   <div id="container"></div>
 
   <script type="text/javascript">
     var w = 1400;
-    var h = 630;
+    var h = 740;
 
     var svg = d3.select("div#container")
       .append("svg")
@@ -44,12 +49,6 @@
 
     var path = d3.geoPath()
       .projection(projection);
-
-    const zoom = d3.zoom()
-      .scaleExtent([1, 8])
-      .on('zoom', zoomed);
-
-
 
     // load data
     var toronto = d3.json("toronto.geojson");
@@ -69,7 +68,7 @@
         .scale(s)
         .translate(t);
 
-      svg.call(zoom);
+
       // draw map
       svg.selectAll("path")
         .data(values[0].features)
@@ -89,7 +88,7 @@
         .attr("cy", function(d) {
           return projection([d.Longitude, d.Latitude])[1];
         })
-        .attr("r", "2px");
+        .attr("r", "1px");
 
       // add labels
       d3.selectAll(".circles")
@@ -98,60 +97,30 @@
             .remove();
 
           svg.append("svg:a").attr("xlink:href", "http://www.google.com/maps/place/" + d.Latitude + "," + d.Longitude)
-
-.attr("target", "_blank")
+            .attr("target", "_blank")
             .append("svg:text")
             .text(d.name)
             .attr("x", projection([d.Longitude, d.Latitude])[0])
             .attr("y", projection([d.Longitude, d.Latitude])[1])
             .attr("class", "labels")
             .attr("text-anchor", "middle")
-            .attr("dy", 20)
-            .attr("dx", 5.5)
+            .attr("dy", 15)
+            .attr("dx", 5.5);
 
-
-
-          // var tootip = svg.append('g').attr('class', 'tooltip');
-          //
-          //    svg.select('.tooltip')
-          //        .append("svg:a")
-          //        .attr("xlink:href", 'http://www.google.com')
-          //        .attr("target", "_blank")
-          //        .append("svg:text").text('link')
-          //        .style('fill', 'blue')
-          //        .attr('x', 22)
-          //        .attr('y', 22)
-          //        .attr('class', 'tlink');
-          //
-          //
-          //
-          // var paddingLeftRight = 18; // adjust the padding values depending on font and font size
-          // var paddingTopBottom = 5;
-          //
-          // svg.selectAll("rect")
-          //     .attr("x", projection([d.Longitude, d.Latitude])[0])
-          //     .attr("y", projection([d.Longitude, d.Latitude])[1])
-          //     .attr("width", "20px")
-          //     .attr("height", "20px");
-
-          // d3.select(this).attr("xlink:href", "http://www.google.com/maps/place/" + d.Latitude + "," + d.Longitude);
         });
     });
 
-    function zoomed() {
-      svg // To prevent stroke width from scaling
-        .attr('transform', d3.event.transform);
-    }
   </script>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-6 col-6">
-        <p><a href="https://www.reddit.com/r/running/comments/3eaxsp/toronto_runners_i_made_a_map_of_water_fountains/">SOURCE</a><p>
+<div class="row">
+      <div class="footer col-lg-6 col-6">
+
       </div>
     </div>
-  </div>
 
+<div class="footer">
+<p>Fatto con affetto, Bea  🍄</p>
+</div>
 
 
 </body>

@@ -1,19 +1,39 @@
  body{
-	 outline-color: 'cyan';
+	 background-color: #DDF1F3;
 	 font-family: 'IBM Plex Sans', sans-serif;
-	 background-color: white;
 	 width: auto;
 	 padding: 0px; !important
  }
 
-a {
+body ::selection{
+  background-color:red;
+  color:#DDF1F3;
+}
+
+p{
+font-family: 'IBM Plex Sans', sans-serif;
+color: black;
+font-size: 0.7rem;
+
+}
+
+
+p a {
 text-decoration: underline;
 font-weight: 800;
+font-size: 0.8rem;
 font-family: 'IBM Plex Sans', sans-serif;
-/* border: 1px solid black;
-padding:0.5rem; */
-color: red;
+color: black;
 }
+
+
+a:hover {
+text-decoration: underline;
+font-family: 'IBM Plex Sans', sans-serif;
+color:black;
+text-transform: underline;
+}
+
 
 .continent {
 	fill: peachpuff;
@@ -23,50 +43,60 @@ color: red;
 }
 
 .circles {
-	fill:red;
+	fill:black;
 }
 
 .labels {
 	font-family: 'IBM Plex Sans', sans-serif;
-	font-size: 10px;
+	font-size: 12px;
 	fill: black;
 }
 
 .labels a {
+  fill: red;
+}
+
+.labels a:hover {
   fill: black;
-  text-decoration: underline;
 
 }
 
+
 h1{
 	font-family: 'IBM Plex Sans', sans-serif;
-	font-size:2rem;
+	font-size:1.5rem;
 	position: fixed;
 	color:red;
   margin:0px;
 }
 
 
-p{
+h2{
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size:0.8rem;
 	color:red;
   margin-top:2.5rem;
   text-transform: uppercase;
-  position: fixed;
+
 
 }
 
 .title{
   width:100%;
-  height: 4rem;
-  padding:1rem;
+  height:6rem;
+  padding-top:1rem;
 }
 
 a:hover{
   cursor: pointer;
 }
 
-.footer{
+.footer p{
   height:100%;
+  font-size: 0.5rem;
+  font-weight: 100;
+}
+
+.svg-content{
+margin-bottom:1em;
 }
