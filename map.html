@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content= "width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My map</title>
   <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
@@ -18,13 +18,13 @@
 
 
   <div class="container-fluid">
-  <div class="row">
-    <div class="title col-lg-12">
-      <h1>le fontanelle di toronto</h1>
-      <p>per avere sempre acqua fresca</p>
+    <div class="row">
+      <div class="title col-lg-12">
+        <h1>le fontanelle di toronto</h1>
+        <p>per avere sempre acqua fresca 🍄</p>
+      </div>
     </div>
   </div>
-</div>
 
   <div id="container"></div>
 
@@ -45,9 +45,9 @@
     var path = d3.geoPath()
       .projection(projection);
 
-      const zoom = d3.zoom()
- .scaleExtent([1, 8])
- .on('zoom', zoomed);
+    const zoom = d3.zoom()
+      .scaleExtent([1, 8])
+      .on('zoom', zoomed);
 
 
 
@@ -69,7 +69,7 @@
         .scale(s)
         .translate(t);
 
- svg.call(zoom);
+      svg.call(zoom);
       // draw map
       svg.selectAll("path")
         .data(values[0].features)
@@ -93,63 +93,65 @@
 
       // add labels
       d3.selectAll(".circles")
-      .on("click", function(d) {
-        svg.selectAll("text")
-          .remove();
+        .on("click", function(d) {
+          svg.selectAll("text")
+            .remove();
+
+          svg.append("svg:a").attr("xlink:href", "http://www.google.com/maps/place/" + d.Latitude + "," + d.Longitude)
+
+.attr("target", "_blank")
+            .append("svg:text")
+            .text(d.name)
+            .attr("x", projection([d.Longitude, d.Latitude])[0])
+            .attr("y", projection([d.Longitude, d.Latitude])[1])
+            .attr("class", "labels")
+            .attr("text-anchor", "middle")
+            .attr("dy", 20)
+            .attr("dx", 5.5)
 
 
-        svg.append("text")
-          .text(d.name)
-          .attr("x", projection([d.Longitude, d.Latitude])[0])
-          .attr("y", projection([d.Longitude, d.Latitude])[1])
-          .attr("class", "labels")
-          .attr("xlink:href", "http://www.google.com/maps/place/" + d.Latitude + "," + d.Longitude)
-          .attr("target", "_blank")
-          .attr("text-anchor", "middle")
-          .attr("dy", 20)
-          .attr("dx", 5.5);
 
-      // var tootip = svg.append('g').attr('class', 'tooltip');
-      //
-      //    svg.select('.tooltip')
-      //        .append("svg:a")
-      //        .attr("xlink:href", 'http://www.google.com')
-      //        .attr("target", "_blank")
-      //        .append("svg:text").text('link')
-      //        .style('fill', 'blue')
-      //        .attr('x', 22)
-      //        .attr('y', 22)
-      //        .attr('class', 'tlink');
-//
-//
-//
-// var paddingLeftRight = 18; // adjust the padding values depending on font and font size
-// var paddingTopBottom = 5;
-//
-// svg.selectAll("rect")
-//     .attr("x", projection([d.Longitude, d.Latitude])[0])
-//     .attr("y", projection([d.Longitude, d.Latitude])[1])
-//     .attr("width", "20px")
-//     .attr("height", "20px");
+          // var tootip = svg.append('g').attr('class', 'tooltip');
+          //
+          //    svg.select('.tooltip')
+          //        .append("svg:a")
+          //        .attr("xlink:href", 'http://www.google.com')
+          //        .attr("target", "_blank")
+          //        .append("svg:text").text('link')
+          //        .style('fill', 'blue')
+          //        .attr('x', 22)
+          //        .attr('y', 22)
+          //        .attr('class', 'tlink');
+          //
+          //
+          //
+          // var paddingLeftRight = 18; // adjust the padding values depending on font and font size
+          // var paddingTopBottom = 5;
+          //
+          // svg.selectAll("rect")
+          //     .attr("x", projection([d.Longitude, d.Latitude])[0])
+          //     .attr("y", projection([d.Longitude, d.Latitude])[1])
+          //     .attr("width", "20px")
+          //     .attr("height", "20px");
 
-        // d3.select(this).attr("xlink:href", "http://www.google.com/maps/place/" + d.Latitude + "," + d.Longitude);
-      });
+          // d3.select(this).attr("xlink:href", "http://www.google.com/maps/place/" + d.Latitude + "," + d.Longitude);
+        });
     });
 
     function zoomed() {
-  svg // To prevent stroke width from scaling
-    .attr('transform', d3.event.transform);
-}
+      svg // To prevent stroke width from scaling
+        .attr('transform', d3.event.transform);
+    }
   </script>
 
-
   <div class="container-fluid">
-  <div class="row">
-    <div class="footer col-lg-12 col-12">
-      <p>source</p>
+    <div class="row">
+      <div class="col-lg-6 col-6">
+        <p><a href="https://www.reddit.com/r/running/comments/3eaxsp/toronto_runners_i_made_a_map_of_water_fountains/">SOURCE</a><p>
+      </div>
     </div>
   </div>
-</div>
+
 
 
 </body>

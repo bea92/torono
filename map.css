@@ -6,10 +6,15 @@
 	 padding: 0px; !important
  }
 
-a{
-font-style: oblique;
+a {
 text-decoration: underline;
+font-weight: 800;
+font-family: 'IBM Plex Sans', sans-serif;
+/* border: 1px solid black;
+padding:0.5rem; */
+color: red;
 }
+
 .continent {
 	fill: peachpuff;
 	stroke: red;
@@ -64,7 +69,4 @@ a:hover{
 
 .footer{
   height:100%;
-}
-
-.footer p{
 }
