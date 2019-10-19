@@ -19,23 +19,22 @@
 
   <div class="container-fluid title">
       <div class="row">
-        <div class="title col-lg-12">
+        <div class="col-lg-12">
           <h1>le 630 fontanelle di toronto</h1>
           <h2>per avere sempre acqua fresca</h2>
-        </div>
-  </div>
+            </div>
 
-  <p><a href="https://www.reddit.com/r/running/comments/3eaxsp/toronto_runners_i_made_a_map_of_water_fountains/">Qua puoi trovare la fonte ufficiosa</a></p>
-  <p>In realtà, come ben saprai, ci sono molte altre fontanelle a Toronto, ma sono riuscita a scaricare i dati solo di queste 630.
-    <br> Se vuoi più fontanelle vai sul tuo amato <a href="https://www.fontanelle.org/">fontanelle.org</a>, ma questa è più bella.
-    <br> Dammi tempo e avrai tutte le 3000 fontanelle di Toronto.
+            </div>
+            </div>
 
-
+  <p class="container-fluid title"><a href="https://www.reddit.com/r/running/comments/3eaxsp/toronto_runners_i_made_a_map_of_water_fountains/">Qua puoi trovare la fonte ufficiosa</a>
+<br>In realtà, come ben saprai, ci sono molte altre fontanelle a Toronto, ma sono riuscita a scaricare i dati solo di queste 630.
+    <br> Se vuoi più fontanelle vai sul tuo amato <a href="https://www.fontanelle.org/">fontanelle.org</a>, ma questa è più bella. Dammi tempo e avrai tutte le 3000 fontanelle di Toronto.</p>
   <div id="container"></div>
 
   <script type="text/javascript">
     var w = 1400;
-    var h = 740;
+    var h = 650;
 
     var svg = d3.select("div#container")
       .append("svg")
@@ -105,7 +104,8 @@
             .attr("class", "labels")
             .attr("text-anchor", "middle")
             .attr("dy", 15)
-            .attr("dx", 5.5);
+            .attr("dx", 5.5)
+            .style("fill","black");
 
         });
     });
@@ -118,8 +118,8 @@
       </div>
     </div>
 
-<div class="footer">
-<p>Fatto con affetto, Bea  🍄</p>
+<div class="container-fluid footer">
+<p>🍄 Fatto con affetto, Bea  🍄</p>
 </div>
 
 
